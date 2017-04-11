@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My erp',
+        'brandLabel' => 'MyErp',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -43,6 +43,8 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/login']];
     } else {
+        $menuItems[] = ['label' => 'Profile', 'url' => ['/profile/' . Yii::$app->user->getId()]];
+        $menuItems[] = ['label' => 'Warehouses', 'url' => ['/profile/' . Yii::$app->user->getId() . "/warehouses"]];
         $menuItems[] = '<li>'
             . Html::beginForm(['/logout'], 'post')
             . Html::submitButton(
@@ -70,9 +72,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My erp <?= date('Y') ?></p>
+        <p class="pull-left">&copy; MyErp <?= date('Y') ?></p>
 
-        <p class="pull-right"><?//= Yii::powered() ?></p>
+        <p class="pull-right"><? //= Yii::powered() ?></p>
     </div>
 </footer>
 

@@ -49,6 +49,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                "/profile/<userId>/warehouses" => "profile/warehouses",
+                "/profile/<userId>" => "profile/index",
                 "/about" => "site/about",
                 "/contact" => "site/contact",
                 "/signup" => "site/signup",
