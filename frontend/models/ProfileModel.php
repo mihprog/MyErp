@@ -2,53 +2,31 @@
 
 namespace frontend\models;
 
-use frontend\classes\Profile;
-use yii\base\Model;
+use yii\db\ActiveRecord;
 
-class ProfileModel extends Model
+class ProfileModel extends ActiveRecord
 {
+    const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 1;
 
-//    public function setCountry($userId, $countryId)
-//    {
-//        if (!$this->validate()) {
-//            return false;
-//        }
-//        $profile = new Profile();
-//        $profile->user_id = $userId;
-//        $profile->country_id = $countryId;
-//        return $profile->save();
-//    }
-//
-//    public function setLastname($userId, $lastName)
-//    {
-//        if (!$this->validate()) {
-//            return false;
-//        }
-//        $profile = new Profile();
-//        $profile->user_id = $userId;
-//        $profile->last_name = $lastName;
-//        return $profile->save();
-//    }
-//
-//    public function setFirstname($userId, $firstName)
-//    {
-//        if (!$this->validate()) {
-//            return false;
-//        }
-//        $profile = new Profile();
-//        $profile->user_id = $userId;
-//        $profile->last_name = $firstName;
-//        return $profile->save();
-//    }
+    public static function tableName()
+    {
+        return '{{%profile}}';
+    }
 
     public function setProfileField($fieldName, $fieldValue, $userId)
     {
         if (!$this->validate()) {
             return false;
         }
-        $profile = new Profile();
-        $profile->user_id = $userId;
-        $profile->$fieldName = $fieldValue;
-        return $profile->save();
+        $profileRecord = self::findOne(["user_id"=>$userId]);
+        if($profileRecord==null){
+            $profileRecord = $this;
+        }
+
+        $profileRecord->user_id = $userId;
+        $profileRecord->$fieldName = $fieldValue;
+        return $profileRecord->save();
     }
+
 }

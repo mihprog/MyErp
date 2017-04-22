@@ -10,19 +10,13 @@ class ProfileController extends Controller
 {
     public function actionIndex($userId)
     {
-        if (\Yii::$app->user->can('updateOwnProfile', ['profileOwner' => $userId])) {
+        $USER = \Yii::$app->user;
+        if ($USER->can('updateOwnProfile', ['profileOwner' => $userId])||$USER->can('admin')) {
             echo "yes";
         } else {
             echo "no";
         }
     }
-
-//    public function actionCountry($userId, $countryId)
-//    {
-//        $profileModel = new ProfileModel();
-//        $result = $profileModel->setCountry($userId, $countryId);
-//        return $result;
-//    }
 
     public function actionSet($fieldName, $fieldValue)
     {
