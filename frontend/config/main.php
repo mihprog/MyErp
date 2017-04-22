@@ -49,6 +49,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                "profile/setfield/<fieldName>/<fieldValue>" => "profile/set",
+               // "/country/<userId>/<countryId>" => "profile/country",
                 "/profile/<userId>/warehouses" => "profile/warehouses",
                 "/profile/<userId>" => "profile/index",
                 "/about" => "site/about",
