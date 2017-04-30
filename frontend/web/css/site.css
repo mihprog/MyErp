@@ -124,8 +124,20 @@ a.desc:after {
 }
 
 .input-group-lg {
-    margin: 10px;
+    margin: 20px;
 }
 
+.thumbnail {
+    float: left;
+    margin: 20px;
+    height: 300px;
+    width: 300px;
+    overflow-y: auto;
+}
+
+.thumbnailButtons{
+    position: relative;
+    top: 150px;
+}
 
 

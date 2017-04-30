@@ -50,7 +50,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 "profile/<userId>/setfield/<fieldName>/<fieldValue>" => "profile/set",
-                "/profile/<userId>/warehouses" => "profile/warehouses",
+                "/profile/<userId>/warehouses" => "warehouse/index",
+                "/profile/<userId>/<warehouseId>" => "warehouse/items",
                 "/profile/<userId>" => "profile/index",
                 "/about" => "site/about",
                 "/contact" => "site/contact",
