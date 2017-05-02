@@ -3,7 +3,6 @@
 namespace frontend\models;
 
 use yii\db\ActiveRecord;
-use yii\db\QueryInterface;
 
 class Warehouse extends ActiveRecord
 {
@@ -32,7 +31,7 @@ class Warehouse extends ActiveRecord
     public function getItems(int $warehouseId)
     {
         $items = \Yii::$app->db->createCommand("
-                SELECT it.name, it.id, pos.count FROM `item` it
+                SELECT it.name, pos.id, pos.count FROM `item` it
                     INNER JOIN `position` pos ON it.id = pos.item_id
                     INNER JOIN `warehouse` wh ON pos.warehouse_id = wh.id
                 WHERE wh.id = :wh_id
@@ -58,7 +57,7 @@ class Warehouse extends ActiveRecord
                 ":count" => $count
             ])
             ->execute();
-        return $count == 1;
+        return $command == 1;
     }
 
     public function removePosition(int $positionId): bool

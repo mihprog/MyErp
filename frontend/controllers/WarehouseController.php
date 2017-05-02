@@ -31,8 +31,8 @@ class WarehouseController extends Controller
         if ($user->can('admin') || $user->getId() == $userId) {
             $warehouseModel = new Warehouse();
             $warehouse = $warehouseModel->getById($warehouseId);
-            $items = $warehouseModel->getItems($warehouseId);
-            return $this->render('items', ["userId" => $userId, "warehouse" => $warehouse, "items" => $items]);
+            $position = $warehouseModel->getItems($warehouseId);
+            return $this->render('items', ["userId" => $userId, "warehouse" => $warehouse, "items" => $position]);
         } else {
             return $this->goHome();
         }

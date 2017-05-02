@@ -135,9 +135,17 @@ a.desc:after {
     overflow-y: auto;
 }
 
-.thumbnailButtons{
+.thumbnailButtons {
     position: relative;
     top: 150px;
+}
+
+.list-group-item {
+    height: 60px;
+}
+
+.rm_pos {
+    float: right;
 }
 
 

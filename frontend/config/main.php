@@ -49,6 +49,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                "profile/<userId>/rmpos/<positionId>" => "warehouse/remove",
                 "profile/<userId>/setfield/<fieldName>/<fieldValue>" => "profile/set",
                 "/profile/<userId>/warehouses" => "warehouse/index",
                 "/profile/<userId>/<warehouseId>" => "warehouse/items",

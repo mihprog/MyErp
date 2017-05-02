@@ -21,4 +21,9 @@ class Item extends ActiveRecord
     {
         return $this->hasMany(Position::className(), ['item_id' => 'id']);
     }
+
+    public function getByUser($userId)
+    {
+        return $this::find()->asArray()->where(["user_id"=>$userId])->all();
+    }
 }
