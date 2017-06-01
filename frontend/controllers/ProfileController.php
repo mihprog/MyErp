@@ -25,9 +25,9 @@ class ProfileController extends Controller
             $profileData = $profileModel->getProfileData($userId);
             $countries = $this->countriesAsIdToName(Country::find()->asArray()->all());
             return $this->render('index', [
-                'profileData'=>$profileData,
+                'profileData' => $profileData,
                 'countries' => $countries,
-                'model'=>$profileModel
+                'model' => $profileModel
             ]);
         } else {
             return $this->goHome();
@@ -43,5 +43,4 @@ class ProfileController extends Controller
         }
         return false;
     }
-
 }
